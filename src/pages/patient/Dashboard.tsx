@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { User, Heart, FileText, Activity, Calendar, LogOut } from 'lucide-react';
 
 export default function PatientDashboard() {
