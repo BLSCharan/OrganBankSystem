@@ -22,8 +22,12 @@ mongoose.connect(process.env.MONGO_URI, {
 }).then(() => {
     console.log('MongoDB connected');
     
-    // Use '0.0.0.0' to allow external connections
-    app.listen(process.env.PORT || 5000, '0.0.0.0', () => {
-        console.log(`Server running on port ${process.env.PORT || 5000}`);
+    // Debugging: Log the port being used
+    const port = process.env.PORT || 5000;
+    console.log(`Using port: ${port}`);  // Log the port to make sure it's being picked up correctly
+
+    // Make sure the server listens on the right IP and port
+    app.listen(port, '0.0.0.0', () => {
+        console.log(`Server running on port ${port}`);
     });
-}).catch((err) => console.log('Mongo error:', err));
+}).catch((err) => console.log('MongoDB error:', err));
