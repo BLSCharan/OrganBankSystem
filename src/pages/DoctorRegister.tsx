@@ -26,14 +26,15 @@ export default function DoctorRegister() {
   
     const { name, email, password, confirmPassword, phone, specialization, licenseNumber, hospital } = formData;
   
-    // Optional: check if password and confirmPassword match
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
     }
   
+    const BASE_URL = "https://organbanksystem.onrender.com"; // 🔥 Added backend Render link here
+  
     try {
-      const response = await fetch("http://localhost:5000/api/doctors/register", {
+      const response = await fetch(`${BASE_URL}/api/doctors/register`, { // 🔥 updated fetch URL
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -62,8 +63,6 @@ export default function DoctorRegister() {
       console.error(error);
     }
   };
-  
-  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center px-4 py-12">

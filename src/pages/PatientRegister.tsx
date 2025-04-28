@@ -21,14 +21,16 @@ export default function PatientRegister() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
-  
+
+    const BASE_URL = "https://organbanksystem.onrender.com"; // 🔥 Added backend link here
+
     try {
-      const response = await fetch("http://localhost:5000/api/patients/register", {
+      const response = await fetch(`${BASE_URL}/api/patients/register`, { // 🔥 updated fetch URL
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,9 +43,9 @@ export default function PatientRegister() {
           bloodGroup: formData.bloodGroup,
         }),
       });
-  
+
       const data = await response.json();
-  
+
       if (response.ok) {
         alert("Patient Registered Successfully");
         navigate("/patient/login");
@@ -55,8 +57,6 @@ export default function PatientRegister() {
       console.error(error);
     }
   };
-  
-  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center px-4 py-12">

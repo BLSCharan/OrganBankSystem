@@ -8,17 +8,20 @@ export default function PatientLogin() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const BASE_URL = "https://organbanksystem.onrender.com"; // 🔥 Added backend link here
+
     try {
-      const response = await fetch("http://localhost:5000/api/patients/login", {
+      const response = await fetch(`${BASE_URL}/api/patients/login`, { // 🔥 Updated fetch URL
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
       });
-  
+
       const data = await response.json();
-  
+
       if (response.ok) {
         alert("Patient Login Successful");
         navigate("/patient/Dashboard");
@@ -30,7 +33,6 @@ export default function PatientLogin() {
       console.error(error);
     }
   };
-  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center px-4">
