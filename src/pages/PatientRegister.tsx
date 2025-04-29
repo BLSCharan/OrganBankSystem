@@ -27,7 +27,7 @@ export default function PatientRegister() {
       return;
     }
 
-    const BASE_URL = "https://organbanksystem.onrender.com"; // 🔥 Added backend link here
+    const BASE_URL = "https://backend-ihst.onrender.com"; // 🔥 Added backend link here
 
     try {
       const response = await fetch(`${BASE_URL}/api/patients/register`, { // 🔥 updated fetch URL

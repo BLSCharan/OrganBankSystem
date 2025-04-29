@@ -9,7 +9,7 @@ export default function DoctorLogin() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const BASE_URL = "https://organbanksystem.onrender.com"; // 🔥 Added backend link here
+    const BASE_URL = "https://backend-ihst.onrender.com"; // 🔥 Added backend link here
 
     try {
       const response = await fetch(`${BASE_URL}/api/doctors/login`, { // 🔥 Updated fetch URL

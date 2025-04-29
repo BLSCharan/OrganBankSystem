@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Mail, MapPin, Phone, Heart, Brain, LucideKey as Kidney, Eye, Bone, ChevronFirst as FirstAid, Syringe, Microscope, User, Calendar, Droplet, FlaskRound, TestTube } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Mail, MapPin, Phone, Heart, Brain, Eye, Bone, ChevronFirst as FirstAid, Syringe, Microscope, User, Calendar, Droplet, FlaskRound, TestTube } from 'lucide-react';
 import CountUp from 'react-countup';
 import PatientLogin from './pages/PatientLogin';
 import PatientRegister from './pages/PatientRegister';
@@ -379,6 +379,7 @@ function App() {
   );
 
   return (
+   
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/patient/login" element={<PatientLogin />} />
@@ -397,6 +398,7 @@ function App() {
       <Route path="/services/blood-bank" element={<BloodBank />} />
       <Route path="/services/doctors" element={<DoctorsList />} />
     </Routes>
+   
   );
 }
 
